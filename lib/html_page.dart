@@ -17,29 +17,7 @@ class _HtmlPageState extends State<HtmlPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: /*HtmlEditor(
-        controller: htmlEditorController,
-        htmlToolbarOptions: HtmlToolbarOptions(
-            defaultToolbarButtons: getDefaultToolbar(),
-
-            onButtonPressed:
-            (ButtonType type, bool? status, Function? updateStatus) async {
-          if (type == ButtonType.video) {
-            String data = await Get.dialog(const PutHtmlDialog());
-            debugPrint("#################");
-            debugPrint("Received HTML data: $data");
-
-            if (data != null) {
-              debugPrint("Inserting HTML data into editor: $data");
-              htmlEditorController.insertHtml(data);
-            } else {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(data.toString())));
-            }
-          }
-          return false;
-        }),
-      )*/HtmlEditor(
+      body: HtmlEditor(
         controller: htmlEditorController,
         htmlEditorOptions: HtmlEditorOptions(
           hint: "Html",
@@ -49,28 +27,6 @@ class _HtmlPageState extends State<HtmlPage> {
         htmlToolbarOptions: HtmlToolbarOptions(
           defaultToolbarButtons:
           getDefaultToolbar(),
-          /*customToolbarButtons: [
-                        //your widgets here
-                        IconButton(
-                          onPressed: () async{
-                            String data = await Get.dialog(
-                                FileDialog(highlightedHtmlEditorController, 2));
-                            myDebugPrint("#################");
-                            myDebugPrint("Received HTML data: $data");
-                            highlightedHtmlEditorController.insertHtml(data);
-                              if (data != null) {
-                            myDebugPrint("Inserting HTML data into editor: $data");
-                            highlightedHtmlEditorController.insertHtml(data);
-                            controller.update();
-                          } else {
-                            showSnakeBar(message: data.toString());
-                          }
-                          },
-                          icon:const Icon(Icons.image,
-                            color: Colors.amber,
-                            size: 26)
-                        )
-                      ],*/
           toolbarPosition:
                ToolbarPosition.aboveEditor
              ,
@@ -91,14 +47,6 @@ class _HtmlPageState extends State<HtmlPage> {
               debugPrint("#################");
               debugPrint("Received HTML data: $data");
               htmlEditorController.insertHtml(data);
-
-              /*  if (data != null) {
-                            myDebugPrint("Inserting HTML data into editor: $data");
-                            highlightedHtmlEditorController.insertHtml(data);
-                            controller.update();
-                          } else {
-                            showSnakeBar(message: data.toString());
-                          }*/
               return false; //this tells the plugin we handled image in a custom way
             }
             if (type == ButtonType.audio) {
